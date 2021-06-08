@@ -18,6 +18,12 @@ android {
     }
 
     buildTypes {
+        def Properties properties = new Properties()
+        properties.load(project.rootProject.file("local.properties").newDataInputStream())
+
+		debug {
+			buildConfigField "String", "APIKEY", "\"${properties.getProperty("apikey")}\""
+		}
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
