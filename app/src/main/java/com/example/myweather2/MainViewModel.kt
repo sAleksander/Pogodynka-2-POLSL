@@ -10,19 +10,24 @@ import androidx.lifecycle.viewModelScope
 import com.example.myweather2.network.OneCallAPI
 import kotlinx.coroutines.launch
 
+data class OneCallApiResult(
+    val success: Boolean,
+    val weather: OneCallAPI? = null
+)
+
 class MainViewModel : ViewModel() {
     private val apiKey = BuildConfig.APIKEY
 
     private var _currentCity: String? = null
     val currentCity get() = _currentCity
 
-    private var _weather: MutableLiveData<OneCallAPI> = MutableLiveData()
-    val weather: LiveData<OneCallAPI>
-        get() = _weather
+    private var _apiResult: MutableLiveData<OneCallApiResult> = MutableLiveData()
+    val apiResult: LiveData<OneCallApiResult>
+        get() = _apiResult
 
     fun chooseCity(city: String) {
         _currentCity = city
-        _weather.value = null
+        _apiResult.value = null
 
         viewModelScope.launch { downloadWeatherData() }
     }
@@ -38,11 +43,16 @@ class MainViewModel : ViewModel() {
             val longitude = currentWeather.coord.lon.toString()
 
             Log.d("MyWeather2", "One call API for $latitude, $longitude")
-            _weather.value = service.oneCallAPI(latitude, longitude, apiKey)
+            _apiResult.value = OneCallApiResult(
+                success = true,
+                weather = service.oneCallAPI(latitude, longitude, apiKey)
+            )
         } catch (exception: Exception) {
             Log.d("MyWeather2", "Failed to download data from API")
             Log.d("MyWeather2", "Message: ${exception.message}")
             Log.d("MyWeather2", "Cause: ${exception.cause}")
+
+            _apiResult.value = OneCallApiResult(success = false)
         }
     }
 }
