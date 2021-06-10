@@ -157,7 +157,7 @@ data class Minutely(
     @Json(name = "dt")
     val dt: Int,
     @Json(name = "precipitation")
-    val precipitation: Int
+    val precipitation: Double
 )
 
 @JsonClass(generateAdapter = true)
