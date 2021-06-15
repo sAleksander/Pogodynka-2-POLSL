@@ -13,8 +13,5 @@ class MainActivity : AppCompatActivity() {
 
         mainViewModel =
             ViewModelProvider(this).get(MainViewModel::class.java)
-
-        // TODO: debug code, remove
-        mainViewModel.chooseCity("Gliwice")
     }
 }

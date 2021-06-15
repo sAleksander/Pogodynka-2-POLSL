@@ -61,23 +61,6 @@ class HomeFragment : Fragment() {
             }
         })
 
-        // TODO: debug code, remove it
-        mainViewModel.apiResult.observe(viewLifecycleOwner, { result ->
-            if (result == null) {
-                Log.d("MyWeather2", "Fragment: Waiting for API result")
-            } else {
-                if (result.success) {
-                    Log.d("MyWeather2", "Fragment: Got API result!")
-                    val weather = result.weather!!
-                    Log.d("MyWeather2", "Fragment: Proving that...")
-                    Log.d("MyWeather2", "Fragment: Latitude: ${weather.lat}")
-                    Log.d("MyWeather2", "Fragment: Longitude: ${weather.lon}")
-                } else {
-                    Log.d("MyWeather2", "Fragment: Failed to get API result!")
-                }
-            }
-        })
-
         return root
     }
 }

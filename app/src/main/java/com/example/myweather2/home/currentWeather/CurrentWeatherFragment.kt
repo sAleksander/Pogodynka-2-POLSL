@@ -1,60 +1,98 @@
 package com.example.myweather2.home.currentWeather
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.ImageView
+import android.widget.TextView
+import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.myweather2.MainViewModel
 import com.example.myweather2.R
+import com.example.myweather2.network.OneCallAPI
+import com.example.myweather2.network.Weather
+import org.w3c.dom.Text
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [CurrentWeatherFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class CurrentWeatherFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
+    // Current weather
+    private lateinit var weatherIcon: ImageView
+    private lateinit var temperatureTextView: TextView
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
+    // 48h forecast
+    private lateinit var forecast48hRecyclerView: RecyclerView
+    private lateinit var forecast48hAdapter: HourlyForecastAdapter
+
+    // Buttons
+    private lateinit var alertsButton: Button
+    private lateinit var forecast7daysButton: Button
+    private lateinit var pollutionButton: Button
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_current_weather, container, false)
-    }
+        val root = inflater.inflate(R.layout.fragment_current_weather, container, false)
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment CurrentWeatherFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            CurrentWeatherFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
+        // Current weather
+        weatherIcon = root.findViewById(R.id.weatherIcon)
+        temperatureTextView = root.findViewById(R.id.temperatureTextView)
+
+        // 48h forecast
+        forecast48hRecyclerView = root.findViewById(R.id.forecast48hRecyclerView)
+        forecast48hAdapter = HourlyForecastAdapter()
+        forecast48hRecyclerView.adapter = forecast48hAdapter
+        forecast48hRecyclerView.layoutManager = LinearLayoutManager(
+                requireContext(),
+                LinearLayoutManager.HORIZONTAL,
+                false
+        )
+
+        // Buttons
+        alertsButton = root.findViewById(R.id.alertsButton)
+        forecast7daysButton = root.findViewById(R.id.forecast7daysButton)
+        pollutionButton = root.findViewById(R.id.pollutionButton)
+
+        alertsButton.setOnClickListener {
+            findNavController().navigate(R.id.action_currentWeatherFragment_to_alertFragment)
+        }
+        forecast7daysButton.setOnClickListener {
+            findNavController().navigate(R.id.action_currentWeatherFragment_to_forecastFragment)
+        }
+        pollutionButton.setOnClickListener {
+            findNavController().navigate(R.id.action_currentWeatherFragment_to_pollutionFragment)
+        }
+
+        val mainViewModel =
+                ViewModelProvider(requireActivity()).get(MainViewModel::class.java)
+
+        mainViewModel.apiResult.observe(viewLifecycleOwner, { result ->
+            if (result == null) {
+                Log.d("MyWeather2", "CurrentWeatherFragment: Waiting for API result")
+            } else {
+                if (result.success) {
+                    Log.d("MyWeather2", "CurrentWeatherFragment: Got API result!")
+                    updateWeatherData(result.weather!!)
+                } else {
+                    Log.d("MyWeather2", "CurrentWeatherFragment: Failed to get API result!")
                 }
             }
+        })
+
+        return root
+    }
+
+    private fun updateWeatherData(api: OneCallAPI) {
+        val currentWeather = api.current.weather.first()
+
+        weatherIcon.setImageResource(WeatherUtil.weatherToIcon(currentWeather.icon))
+        temperatureTextView.text = "${api.current.temp.toInt()}°C"
+
+        forecast48hAdapter.submitList(api.hourly)
     }
 }

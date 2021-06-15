@@ -71,7 +71,7 @@ data class Current(
     @Json(name = "wind_deg")
     val windDeg: Int,
     @Json(name = "wind_gust")
-    val windGust: Double,
+    val windGust: Double?,
     @Json(name = "wind_speed")
     val windSpeed: Double
 )
@@ -113,7 +113,7 @@ data class Daily(
     @Json(name = "wind_deg")
     val windDeg: Int,
     @Json(name = "wind_gust")
-    val windGust: Double,
+    val windGust: Double?,
     @Json(name = "wind_speed")
     val windSpeed: Double
 )
@@ -147,7 +147,7 @@ data class Hourly(
     @Json(name = "wind_deg")
     val windDeg: Int,
     @Json(name = "wind_gust")
-    val windGust: Double,
+    val windGust: Double?,
     @Json(name = "wind_speed")
     val windSpeed: Double
 )
