@@ -6,10 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.widget.*
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -32,8 +29,9 @@ class HomeFragment : Fragment() {
                 ViewModelProvider(requireActivity()).get(HomeViewModel::class.java)
 
         val textViewCityName: EditText = root.findViewById(R.id.editTextCity)
-        root.findViewById<Button>(R.id.buttonAddCity).setOnClickListener {
+        root.findViewById<ImageButton>(R.id.buttonAddCity).setOnClickListener {
             homeViewModel.addCity(textViewCityName.editableText.toString())
+            textViewCityName.setText("")
         }
 
         val adapter = HomeAdapter(

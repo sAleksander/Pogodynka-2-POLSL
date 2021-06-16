@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -26,7 +27,7 @@ class HomeAdapter(
 
         init {
             view.setOnClickListener { onClick(adapterPosition) }
-            view.findViewById<Button>(R.id.buttonDeleteCity).setOnClickListener {
+            view.findViewById<ImageButton>(R.id.buttonDeleteCity).setOnClickListener {
                 onDelete(adapterPosition)
             }
         }
