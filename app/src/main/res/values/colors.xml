@@ -29,4 +29,7 @@
     <color name="neonMagneta">#b88bc4</color>
     <color name="neonTurqouise">#48a3a4</color>
     <color name="neonTriband">#f3ae69</color>
+
+    <color name="warningRed">#e30008</color>
+    <color name="warningDescriptionRed">#e37b7e</color>
 </resources>

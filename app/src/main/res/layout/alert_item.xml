@@ -1,122 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/senderLayout"
+    android:layout_margin="5sp"
+    android:background="@color/warningRed"
+    android:elevation="10sp"
+    android:padding="5sp">
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent">
-        <TextView
-            android:id="@+id/senderKeyTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Sender: "
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:id="@+id/senderTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="SENDER"
-            app:layout_constraintLeft_toRightOf="@+id/senderKeyTextView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="148dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/eventLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/senderLayout">
-        <TextView
-            android:id="@+id/eventKeyTextView"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Event: "
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:id="@+id/eventTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="EVENT"
-            app:layout_constraintLeft_toRightOf="@+id/eventKeyTextView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:orientation="horizontal"
+            android:padding="5sp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/startLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/eventLayout">
-        <TextView
-            android:id="@+id/startKeyTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="From: "
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:id="@+id/startTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="FROM"
-            app:layout_constraintLeft_toRightOf="@+id/startKeyTextView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/eventKeyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Event: "
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/endLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/startLayout">
-        <TextView
-            android:id="@+id/endKeyTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="To: "
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:id="@+id/endTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="TO"
-            app:layout_constraintLeft_toRightOf="@+id/endKeyTextView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <TextView
+                android:id="@+id/eventTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EVENT"
+                android:textColor="@color/white"
+                android:textSize="22sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="2sp"
+            android:layout_marginRight="2sp"
+            android:background="@color/white" />
 
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/descriptionLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/endLayout">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5sp">
+
+            <TextView
+                android:id="@+id/senderKeyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sender: "
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/senderTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="SENDER"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="2sp"
+            android:layout_marginRight="2sp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5sp">
+
+            <TextView
+                android:id="@+id/startKeyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From: "
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/startTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="FROM"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="2sp"
+            android:layout_marginRight="2sp"
+            android:background="@color/white" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5sp">
+
+            <TextView
+                android:id="@+id/endKeyTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To: "
+                android:textColor="@color/white"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/endTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="TO"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2px"
+            android:layout_marginLeft="2sp"
+            android:layout_marginRight="2sp"
+            android:background="@color/white" />
+
         <TextView
+            android:padding="5sp"
+            android:textColor="@color/white"
+            android:textStyle="bold"
             android:id="@+id/descriptionKeyTextView"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Description: "
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-        <TextView
-            android:id="@+id/descriptionTextView"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="DESCRIPTION"
-            app:layout_constraintLeft_toRightOf="@+id/descriptionKeyTextView"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"/>
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            android:text="Description: " />
 
+        <TextView
+            android:background="@color/warningDescriptionRed"
+            android:padding="5sp"
+            android:layout_margin="5sp"
+            android:id="@+id/descriptionTextView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="description...." />
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
