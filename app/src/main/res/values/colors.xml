@@ -20,4 +20,13 @@
     <color name="separatorOrange">#f57600</color>
     <color name="sunYellow">#dec800</color>
     <color name="healthyGreen">#00b800</color>
+
+    <color name="neonOrange">#fa3f0c</color>
+    <color name="neonRose">#f72974</color>
+    <color name="neonBlue">#0469c5</color>
+    <color name="neonGreen">#8bb81d</color>
+    <color name="neonYellow">#fab51a</color>
+    <color name="neonMagneta">#b88bc4</color>
+    <color name="neonTurqouise">#48a3a4</color>
+    <color name="neonTriband">#f3ae69</color>
 </resources>
