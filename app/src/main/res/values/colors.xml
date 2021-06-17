@@ -17,4 +17,7 @@
     <color name="rainyBlue">#4287f5</color>
     <color name="temperatureOrange">#fa7f0c</color>
     <color name="weatherGrey">#757574</color>
+    <color name="separatorOrange">#f57600</color>
+    <color name="sunYellow">#dec800</color>
+    <color name="healthyGreen">#00b800</color>
 </resources>
