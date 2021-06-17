@@ -48,6 +48,6 @@ object WeatherUtil {
     }
 
     fun formatConcentration(concentration: Double): String {
-        return "$concentration μg/m3"
+        return "$concentration μg/m³"
     }
 }

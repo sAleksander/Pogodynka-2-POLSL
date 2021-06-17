@@ -56,7 +56,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="CO: "
+                android:text="CO "
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -92,7 +92,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NO: "
+                android:text="NO "
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -128,7 +128,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NO2: "
+                android:text="NO₂ "
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -164,7 +164,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="O3: "
+                android:text="O₃ "
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -200,7 +200,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="SO2: "
+                android:text="SO₂ "
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -236,7 +236,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PM 2.5: "
+                android:text="PM 2.5 "
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -272,7 +272,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PM 10:"
+                android:text="PM 10"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -308,7 +308,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="NH3:"
+                android:text="NH₃"
                 android:textColor="@color/white"
                 android:textSize="20sp"
                 android:textStyle="bold" />
