@@ -13,4 +13,8 @@
     <color name="poisonusgreen">#4e9c56</color>
     <color name="skyblue">#388eff</color>
     <color name="grey">#c4c4c4</color>
+
+    <color name="rainyBlue">#4287f5</color>
+    <color name="temperatureOrange">#fa7f0c</color>
+    <color name="weatherGrey">#757574</color>
 </resources>

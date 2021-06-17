@@ -14,6 +14,7 @@
         android:id="@+id/hourTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/weatherGrey"
         app:layout_constraintBottom_toTopOf="@+id/weatherIcon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -24,13 +25,15 @@
         android:layout_height="50sp"
         app:layout_constraintBottom_toTopOf="@+id/temperatureTextView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:tint="@color/weatherGrey" />
 
     <TextView
         android:id="@+id/temperatureTextView"
         android:textSize="20sp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/temperatureOrange"
         app:layout_constraintBottom_toTopOf="@+id/popTextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -42,6 +45,7 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/rainyBlue"
         app:layout_constraintStart_toStartOf="parent" />
 
     <View
