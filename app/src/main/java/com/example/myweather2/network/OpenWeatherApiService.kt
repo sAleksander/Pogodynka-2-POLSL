@@ -1,3 +1,4 @@
+import com.example.myweather2.network.AirPollution
 import com.example.myweather2.network.OneCallAPI
 import com.example.myweather2.network.CurrentWeather
 import com.squareup.moshi.Moshi
@@ -33,6 +34,14 @@ interface OpenWeatherApiService {
         @Query("appid") apiKey: String,
         @Query("units") units: String = "metric",
     ): OneCallAPI
+
+    @GET("air_pollution")
+    suspend fun getAirPollution(
+        @Query("lat") latitude: String,
+        @Query("lon") longitude: String,
+        @Query("appid") apiKey: String,
+        @Query("units") units: String = "metric"
+    ): AirPollution
 }
 
 object OpenWeatherApi {

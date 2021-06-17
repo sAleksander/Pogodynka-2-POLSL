@@ -35,4 +35,19 @@ object WeatherUtil {
     fun formatWindSpeed(windSpeed: Double): String {
         return "${windSpeed.toInt()} m/s"
     }
+
+    fun formatAirQualityIndex(aqi: Int): String {
+        return when (aqi) {
+            1 -> "Good"
+            2 -> "Fair"
+            3 -> "Moderate"
+            4 -> "Poor"
+            5 -> "Very Poor"
+            else -> ""
+        }
+    }
+
+    fun formatConcentration(concentration: Double): String {
+        return "$concentration μg/m3"
+    }
 }

@@ -7,12 +7,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.myweather2.network.AirPollution
 import com.example.myweather2.network.OneCallAPI
 import kotlinx.coroutines.launch
 
-data class OneCallApiResult(
+data class ApiResult(
     val success: Boolean,
-    val weather: OneCallAPI? = null
+    val weather: OneCallAPI? = null,
+    val pollution: AirPollution? = null
 )
 
 class MainViewModel : ViewModel() {
@@ -21,8 +23,8 @@ class MainViewModel : ViewModel() {
     private var _currentCity: String? = null
     val currentCity get() = _currentCity
 
-    private var _apiResult: MutableLiveData<OneCallApiResult> = MutableLiveData()
-    val apiResult: LiveData<OneCallApiResult>
+    private var _apiResult: MutableLiveData<ApiResult> = MutableLiveData()
+    val apiResult: LiveData<ApiResult>
         get() = _apiResult
 
     fun chooseCity(city: String) {
@@ -42,17 +44,19 @@ class MainViewModel : ViewModel() {
             val latitude = currentWeather.coord.lat.toString()
             val longitude = currentWeather.coord.lon.toString()
 
-            Log.d("MyWeather2", "One call API for $latitude, $longitude")
-            _apiResult.value = OneCallApiResult(
-                success = true,
-                weather = service.oneCallAPI(latitude, longitude, apiKey)
+            Log.d("MyWeather2", "API call for $latitude, $longitude")
+            _apiResult.value = ApiResult(
+                    success = true,
+                    weather = service.oneCallAPI(latitude, longitude, apiKey),
+                    pollution = service.getAirPollution(latitude, longitude, apiKey)
             )
+
         } catch (exception: Exception) {
             Log.d("MyWeather2", "Failed to download data from API")
             Log.d("MyWeather2", "Message: ${exception.message}")
             Log.d("MyWeather2", "Cause: ${exception.cause}")
 
-            _apiResult.value = OneCallApiResult(success = false)
+            _apiResult.value = ApiResult(success = false)
         }
     }
 }
