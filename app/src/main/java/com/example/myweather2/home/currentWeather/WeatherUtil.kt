@@ -27,4 +27,12 @@ object WeatherUtil {
     fun formatTemperature(temperature: Double): String {
         return "${temperature.toInt()}°C"
     }
+
+    fun formatPressure(pressure: Int): String {
+        return "$pressure hPa"
+    }
+
+    fun formatWindSpeed(windSpeed: Double): String {
+        return "${windSpeed.toInt()} m/s"
+    }
 }

@@ -20,7 +20,10 @@ class ForecastAdapter : ListAdapter<Daily, ForecastAdapter.ViewHolder>(
     ) : RecyclerView.ViewHolder(view) {
         val dateTextView: TextView = view.findViewById(R.id.dateTextView)
         val weatherIcon: ImageView = view.findViewById(R.id.weatherIcon)
-        val temperatureTextView: TextView = view.findViewById(R.id.temperatureTextView)
+        val dayTemperatureTextView: TextView = view.findViewById(R.id.dayTemperatureTextView)
+        val nightTemperatureTextView: TextView = view.findViewById(R.id.nightTemperatureTextView)
+        val windTextView: TextView = view.findViewById(R.id.windTextView)
+        val pressureTextView: TextView = view.findViewById(R.id.pressureTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -35,7 +38,10 @@ class ForecastAdapter : ListAdapter<Daily, ForecastAdapter.ViewHolder>(
 
         holder.dateTextView.text = WeatherUtil.formatUnix(daily.dt, "yyyy-MM-dd")
         holder.weatherIcon.setImageResource(WeatherUtil.weatherToIcon(daily.weather.first().icon))
-        holder.temperatureTextView.text = WeatherUtil.formatTemperature(daily.temp.day)
+        holder.dayTemperatureTextView.text = WeatherUtil.formatTemperature(daily.temp.day)
+        holder.nightTemperatureTextView.text = WeatherUtil.formatTemperature(daily.temp.night)
+        holder.windTextView.text = WeatherUtil.formatWindSpeed(daily.windSpeed)
+        holder.pressureTextView.text = WeatherUtil.formatPressure(daily.pressure)
     }
 }
 

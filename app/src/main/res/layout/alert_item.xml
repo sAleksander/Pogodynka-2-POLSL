@@ -17,7 +17,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
-            android:id="@+id/senderValueTextView"
+            android:id="@+id/senderTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SENDER"
@@ -40,7 +40,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
-            android:id="@+id/eventValueTextView"
+            android:id="@+id/eventTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="EVENT"
@@ -63,7 +63,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
-            android:id="@+id/startValueTextView"
+            android:id="@+id/startTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="FROM"
@@ -86,7 +86,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
-            android:id="@+id/endValueTextView"
+            android:id="@+id/endTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TO"
@@ -110,7 +110,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"/>
         <TextView
-            android:id="@+id/descriptionValueTextView"
+            android:id="@+id/descriptionTextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="DESCRIPTION"

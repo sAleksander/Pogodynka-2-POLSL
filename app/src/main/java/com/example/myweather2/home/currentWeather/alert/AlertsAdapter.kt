@@ -17,11 +17,11 @@ class AlertsAdapter : ListAdapter<Alert, AlertsAdapter.ViewHolder>(
     class ViewHolder(
             view: View
     ) : RecyclerView.ViewHolder(view) {
-        val senderTextView: TextView = view.findViewById(R.id.senderValueTextView)
-        val eventTextView: TextView = view.findViewById(R.id.eventValueTextView)
-        val startTextView: TextView = view.findViewById(R.id.startValueTextView)
-        val endTextView: TextView = view.findViewById(R.id.endValueTextView)
-        val descriptionTextView: TextView = view.findViewById(R.id.descriptionValueTextView)
+        val senderTextView: TextView = view.findViewById(R.id.senderTextView)
+        val eventTextView: TextView = view.findViewById(R.id.eventTextView)
+        val startTextView: TextView = view.findViewById(R.id.startTextView)
+        val endTextView: TextView = view.findViewById(R.id.endTextView)
+        val descriptionTextView: TextView = view.findViewById(R.id.descriptionTextView)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
