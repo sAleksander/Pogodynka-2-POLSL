@@ -39,7 +39,7 @@ class HourlyForecastAdapter : ListAdapter<Hourly, HourlyForecastAdapter.ViewHold
 
         holder.hourTextView.text = WeatherUtil.formatUnix(hourlyForecast.dt, "HH:mm")
         holder.weatherIcon.setImageResource(WeatherUtil.weatherToIcon(hourlyForecast.weather.first().icon))
-        holder.temperatureTextView.text = "${hourlyForecast.temp.toInt()}°C"
+        holder.temperatureTextView.text = WeatherUtil.formatTemperature(hourlyForecast.temp)
         holder.popTextView.text = "${(hourlyForecast.pop * 100).toInt()}%"
     }
 }

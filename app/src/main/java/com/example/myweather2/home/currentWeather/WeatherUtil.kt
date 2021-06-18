@@ -50,4 +50,8 @@ object WeatherUtil {
     fun formatConcentration(concentration: Double): String {
         return "$concentration μg/m³"
     }
+
+    fun formatHumidity(humidity: Int): String {
+        return "$humidity%"
+    }
 }

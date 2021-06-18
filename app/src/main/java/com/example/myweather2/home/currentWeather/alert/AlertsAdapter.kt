@@ -26,7 +26,7 @@ class AlertsAdapter : ListAdapter<Alert, AlertsAdapter.ViewHolder>(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.hourly_forecast_item, parent, false)
+                .inflate(R.layout.alert_item, parent, false)
 
         return ViewHolder(view)
     }
