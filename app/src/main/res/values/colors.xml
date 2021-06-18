@@ -32,4 +32,6 @@
 
     <color name="warningRed">#e30008</color>
     <color name="warningDescriptionRed">#e37b7e</color>
+    <color name="highlightGrey">#ebebeb</color>
+    <color name="tempGreen">#00d13b</color>
 </resources>
